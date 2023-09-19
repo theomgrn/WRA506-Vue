@@ -1,24 +1,31 @@
 <script setup lang="ts">
-
 import { RouterLink, RouterView } from "vue-router";
+import { routes } from "./router"; // Assurez-vous que le chemin d'importation est correct
 
+const dynamicRoutes = routes.filter(route => {
+  return route.name;
+});
 </script>
 
 <template>
-
   <header>
     <div class="wrapper">
       <nav>
-        <router-link class="link-nav-main" to="/">Home</router-link>
-        <router-link class="link-nav-main" to="/session1">Session1</router-link>
-        <router-link class="link-nav-main" to="/session2">Session2</router-link>
+        <router-link
+            class="link-nav-main"
+            v-for="route in dynamicRoutes"
+            :key="route.name"
+            :to="{ name: route.name }"
+        >
+          {{ route.name }}
+        </router-link>
       </nav>
     </div>
   </header>
   <RouterView />
-
 </template>
 
 <style scoped>
 
 </style>
+
