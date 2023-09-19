@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Card from '../components/Card.vue'
+import Card from '../components/Cards.vue'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
@@ -9,14 +9,14 @@ export type Pokemon = {
 }
 
 let data = ref<Pokemon[]>([]);
-let isLoading = ref(true); // Initialisez isLoading à true
+let isLoading = ref(true);
 
 onMounted(async () => {
   try {
     const response = await axios.get('https://api-pokemon-fr.vercel.app/api/v1/pokemon');
     data.value = response.data;
     data.value.shift(); // Supprimez le premier élément
-    isLoading.value = false; // Définissez isLoading sur false une fois les données chargées
+    isLoading.value = false;
     console.log(data.value);
   } catch (error) {
     console.error(error);
@@ -33,7 +33,7 @@ onMounted(async () => {
     <div v-else class="gallery">
       <Card
           v-for="pokemon in data"
-          :sprites="pokemon.sprites.regular"
+          :sprites="pokemon.sprites"
           :name="pokemon.name"
           :key="pokemon.name.common"
       />

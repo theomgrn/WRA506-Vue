@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
-import { routes } from "./router"; // Assurez-vous que le chemin d'importation est correct
+import { routes } from "./router";
 
 const dynamicRoutes = routes.filter(route => {
-  return route.name;
+  return route.name.startsWith("Session") || route.name === "HOME";
 });
 </script>
 
@@ -15,7 +15,7 @@ const dynamicRoutes = routes.filter(route => {
             class="link-nav-main"
             v-for="route in dynamicRoutes"
             :key="route.name"
-            :to="{ name: route.name }"
+            :to="{ name: route.name}"
         >
           {{ route.name }}
         </router-link>
