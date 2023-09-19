@@ -13,6 +13,11 @@ const router = createRouter({
             name: 'session1',
             component: () => import('../views/Session1.vue')
         },
+        {
+            path: '/session2',
+            name: 'session2',
+            component: () => import('../views/Session2.vue')
+        },
         // {
         //     path: "/infoepisode/:id",
         //     name: "InfoEpisode",
