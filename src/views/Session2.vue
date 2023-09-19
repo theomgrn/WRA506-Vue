@@ -4,7 +4,7 @@ import {ref} from 'vue'
 
 const awesome = ref(true)
 const items = [{ message: 'Foo' }, { message: 'Bar' }]
-const notes = [19, 10, 9, 3, 2, 13, 17, 19, 1, 8]
+const notes = Array.from({ length: 10 }, () => Math.floor(Math.random() * 21));
 const sup = "supérieur à 10"
 const inf = "inférieur à 10"
 
