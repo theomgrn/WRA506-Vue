@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 export const routes = [
     {
         path: '/',
@@ -24,6 +25,11 @@ export const routes = [
         path: '/session4',
         name: 'Session4',
         component: () => import('../views/Session4.vue')
+    },
+    {
+        path: '/info/:pokedexId',
+        name: 'Card',
+        component: () => import('../components/Card.vue')
     },
 ]
 

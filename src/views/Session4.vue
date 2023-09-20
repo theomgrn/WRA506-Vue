@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import Card from '../components/Cards.vue'
+import Cards from '../components/Cards.vue'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 
 export type Pokemon = {
   name: {[key: string]: string};
   sprites: {[key: string]: string};
+  pokedexId : number;
 }
 
 let data = ref<Pokemon[]>([]);
@@ -31,10 +32,11 @@ onMounted(async () => {
     <div v-if="isLoading" class="loading">Chargement en cours...</div>
 
     <div v-else class="gallery">
-      <Card
+      <Cards
           v-for="pokemon in data"
           :sprites="pokemon.sprites"
           :name="pokemon.name"
+          :pokedexId="pokemon.pokedexId"
           :key="pokemon.name.common"
       />
     </div>
