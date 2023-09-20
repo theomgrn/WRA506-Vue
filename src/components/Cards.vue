@@ -1,17 +1,16 @@
 <script setup lang="ts">
 
-import {defineProps} from "vue";
 import type {Pokemon} from "../views/Session4.vue";
 
-const {sprites, name} = defineProps<Pokemon>();
+const {sprites, name, pokedexId} = defineProps<Pokemon>();
 
 </script>
 
 <template>
 
   <div class="card">
-    <h4><a :href="name.fr">{{ name.fr }}</a> </h4>
-    <img :src="sprites.regular" alt="pokemon"/>
+    <h4><router-link :sprites="sprites" :name="name" :pokedexId="pokedexId" :to="'/info/' + pokedexId" >{{ name.fr }}</router-link></h4>
+    <img :src="sprites.shiny || sprites.regular" alt="pokemon"/>
   </div>
 
 </template>
