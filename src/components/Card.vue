@@ -32,7 +32,6 @@ onMounted(async () => {
       "https://api-pokemon-fr.vercel.app/api/v1/pokemon/" + pokedexId
   );
   data.value = response.data;
-  console.log(data.value);
 });
 
 
