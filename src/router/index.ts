@@ -31,6 +31,11 @@ export const routes = [
         name: 'Card',
         component: () => import('../components/Card.vue')
     },
+    {
+        path: '/search',
+        name: 'SEARCH',
+        component: () => import('../views/Search.vue')
+    },
 ]
 
 const router = createRouter({

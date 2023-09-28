@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 import { routes } from "./router";
 
 const dynamicRoutes = routes.filter(route => {
-  return route.name.startsWith("Session") || route.name === "HOME";
+  return route.name.startsWith("Session") || route.name === "HOME" || route.name === "SEARCH";
 });
 </script>
 

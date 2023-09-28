@@ -18,8 +18,8 @@ onMounted(async () => {
   try {
     const response = await axios.get('./pokemon.json');
     originalData = response.data;
-    originalData.shift(); // Supprime le premier élément
-    data.value = [...originalData]; // Copie des données d'origine
+    originalData.shift();
+    data.value = [...originalData];
     isLoading.value = false;
   } catch (error) {
     console.error(error);
